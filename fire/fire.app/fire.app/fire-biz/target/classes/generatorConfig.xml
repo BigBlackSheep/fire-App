@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+  <!--<classPathEntry location="D:\REPOS\newm2\com\oracle\ojdbc14\11.2.0.3\ojdbc14-11.2.0.3.jar"/>-->
+  <!--<classPathEntry-->
+    <!--location="D:\software\maven\repo\com\oracle\ojdbc14\11.2.0.3\ojdbc14-11.2.0.3.jar"/>-->
+  <classPathEntry location="C:\var\soft\maven-jar\mysql-connector-java-5.1.18.jar"/>
+
+  <context id="mysql" targetRuntime="MyBatis3">
+
+    <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+      <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+      <property name="caseSensitive" value="false"/>
+    </plugin>
+
+    <commentGenerator
+      type="com.fire.communication.app.biz.common.generator.MyCommentGenerator">
+    </commentGenerator>
+
+    <jdbcConnection connectionURL="jdbc:mysql://118.25.40.121:3306/fire?nullCatalogMeansCurrent=true" driverClass="com.mysql.jdbc.Driver" password="gaozhan123" userId="gz">
+      <!--<property name="remarksReporting" value="true"></property>-->
+    </jdbcConnection>
+
+    <javaTypeResolver
+      type="com.fire.communication.app.biz.common.generator.MyJavaTypeResolver">
+      <!--<property name="forceBigDecimals" value="false"/>-->
+    </javaTypeResolver>
+
+    <javaModelGenerator
+      targetPackage="com.fire.communication.app.biz.dto"
+      targetProject="C:\var\soft\code\fire\fire.app\fire.app\fire-biz\src\mian\java">
+      <property name="trimStrings" value="true"/>
+    </javaModelGenerator>
+
+    <sqlMapGenerator
+      targetPackage="com.fire.communication.app.biz.mapper"
+      targetProject="C:\var\soft\code\fire\fire.app\fire.app\fire-biz\src\mian\java">
+    </sqlMapGenerator>
+
+    <javaClientGenerator
+      targetPackage="com.fire.communication.app.biz.mapper"
+      targetProject="C:\var\soft\code\fire\fire.app\fire.app\fire-biz\src\mian\java" type="XMLMAPPER">
+    </javaClientGenerator>
+
+    <table domainObjectName="UsersDto" enableCountByExample="false"
+      enableDeleteByExample="false"
+      enableSelectByExample="false"
+      enableUpdateByExample="false"
+      selectByExampleQueryId="false"
+      tableName="users">
+    </table>
+
+  </context>
+</generatorConfiguration>
